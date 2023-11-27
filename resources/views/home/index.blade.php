@@ -6,25 +6,30 @@
 @section('content')
     <!-- Start Banner-->
     <div class="banner-area shape auto-height text-center text-normal text-light shadow dark-hard bg-fixed"
-        style="background-image: url({{ $info_umum->preview_image }}); height:500px;" id="dashboard">
+        style="background-image: url({{ $info_umum->preview_image }}); height:100%;width:100%object-fit:cover;"
+        id="dashboard">
         <div class="container">
             <div class="row">
-                <div class="content-box video-popup">
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="content">
+                <div class="container"
+                    style="display: flex;
+                align-items: center; /* Untuk tengah atas/bawah */
+                justify-content: center; /* Untuk tengah kiri/kanan */
+                height: 100vh; /* Mengisi tinggi viewport */">
+                    <div class="col-md-12">
+                        <div class="content" style="text-align: center;">
                             <h2>MAL <span> PELAYANAN </span> PUBLIK</h2>
                         </div>
                     </div>
-                    <div class="col-md-8 col-md-offset-2">
-                        <div class="banner banner-carousel owl-carousel owl-theme">
-                            {{-- <div class="item">
+                    {{-- <div class="col-md-8 col-md-offset-2"> --}}
+                        {{-- <div class="banner banner-carousel owl-carousel owl-theme"> --}}
+                        {{-- <div class="item">
                                 <img alt="Thumb" src="{{ asset('gostart/assets/img/800x600.png') }}">
                             </div> --}}
-                            {{-- <div class="item">
+                        {{-- <div class="item">
                                 <img alt="Thumb" src="{{ asset('gostart/assets/img/800x600.png') }}">
                             </div> --}}
-                        </div>
-                    </div>
+                        {{-- </div> --}}
+                    {{-- </div> --}}
                 </div>
             </div>
         </div>
