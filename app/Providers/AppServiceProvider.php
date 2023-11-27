@@ -23,15 +23,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $visitor = DB::table('visitors')->count();
-        View::share('visitor', $visitor);
 
-        $pembaca = DB::table('views')->count();
-        View::share('pembaca', $pembaca);
-
-        $info = DB::table('informasi_umums')->first();
-        View::share('info', $info);
-
+        if (env('APP_ENV') !== 'local') {
+            $this->app['request']->server->set('HTTPS', true);
+            $visitor = DB::table('visitors')->count();
+            View::share('visitor', $visitor);
+            $pembaca = DB::table('views')->count();
+            View::share('pembaca', $pembaca);
+            $info = DB::table('informasi_umums')->first();
+            View::share('info', $info);
+        }
+        
 
 
     }
