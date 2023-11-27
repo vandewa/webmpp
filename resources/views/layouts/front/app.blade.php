@@ -165,8 +165,17 @@
                     </div>
                 </div>
             </div>
-            <div class="text-right">
-                <span style="font-size: 15px;">&copy; Copyright 2020. All Rights Reserved</span>
+            <div class="text-center">
+                <span style="font-size: 15px;">&copy;
+                    Copyright
+                    @if (date('Y') == 2023)
+                        2023
+                    @else
+                        2023 - {{ date('Y') }}
+                    @endif
+                    . Mal Pelayanan Publik Kabupaten Wonosobo. All
+                    Rights Reserved
+                </span>
             </div>
         </div>
     </footer>
