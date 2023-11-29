@@ -37,5 +37,6 @@ class Berita extends Model implements Viewable
             ]
         ];
     }
+    
 
 }

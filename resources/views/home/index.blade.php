@@ -97,11 +97,12 @@
         <div class="container-full">
             <div class="portfolio-items text-light masonary portfolio-carousel-3-col owl-carousel owl-theme">
                 @foreach ($berita as $list)
-                    <div class="pf-item">
+                    <div class="pf-item col-sm-12">
                         <a href="{{ route('detail.berita', $list->slug) }}">
                             <div class="item-effect">
                                 <div class="thumb">
-                                    <img src="{{ $list->preview_image }}" alt="thumb">
+                                    <img src="{{ $list->sampul->preview_image ?? '' }}" alt="thumb"
+                                        style="style="height:100%;width:100%;object-fit:cover"">
                                 </div>
                                 <div class="icons">
                                     <h4>

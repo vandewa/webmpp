@@ -10,4 +10,10 @@ class Attachment extends Model
     use HasFactory;
     protected $guarded = [];
 
+    public function getPreviewImageAttribute()
+    {
+        $devan = asset(str_replace('public', 'storage', $this->attributes['path'])) ?? asset('notfound.jpg');
+        return $devan;
+    }
+
 }

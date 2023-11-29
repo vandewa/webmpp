@@ -62,7 +62,7 @@
                             </div>
 
                             <div class="col-md-4">
-                                <div class="bg-transparent padding40 text-dark box-rounded">
+                            <div class="bg-transparent padding40 text-dark box-rounded">
                                     <h3 class="mb-3">Pengaduan Masyarakat</h3>
                                     <a href="https://laporbupati.wonosobokab.go.id" target="_blank">
                                         <img class="mx-auto card-img transition-zoom-hover"

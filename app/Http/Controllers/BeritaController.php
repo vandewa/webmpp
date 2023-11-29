@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Attachment;
 use Carbon\Carbon;
 use App\Models\Berita;
 use Illuminate\Http\Request;
@@ -72,6 +73,9 @@ class BeritaController extends Controller
         ]);
 
         foreach ($request->document as $file) {
+
+            $nama_file = date('Ymdhis') . '.' . \File::extension($file);
+
             $path = storage_path('app/public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/');
 
             if (!file_exists($path)) {
@@ -79,12 +83,12 @@ class BeritaController extends Controller
             }
 
             $from = storage_path('tmp/uploads/' . $file);
-            $to = $path . $file;
+            $to = $path . $nama_file;
             File::move($from, $to);
             Files::create([
                 'berita_id' => $berita->id,
-                'nama_file' => $file,
-                'path' => 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
+                'nama_file' => $nama_file,
+                'path' => 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $nama_file
             ]);
         }
 
