@@ -115,7 +115,7 @@
 
     <!-- Start Footer
     ============================================= -->
-    <footer class="bg-gray">
+    <footer class="bg-gray" style="background-color: #afe5d0">
         <div class="svg-shape">
             <svg xmlns="http://www.w3.org/2000/svg" class="light" preserveAspectRatio="none" viewBox="0 0 1070 52">
                 <path d="M0,0S247,91,505,32c261.17-59.72,565-13,565-13V0Z"></path>
