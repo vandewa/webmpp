@@ -21,14 +21,14 @@
                         </div>
                     </div>
                     {{-- <div class="col-md-8 col-md-offset-2"> --}}
-                        {{-- <div class="banner banner-carousel owl-carousel owl-theme"> --}}
-                        {{-- <div class="item">
+                    {{-- <div class="banner banner-carousel owl-carousel owl-theme"> --}}
+                    {{-- <div class="item">
                                 <img alt="Thumb" src="{{ asset('gostart/assets/img/800x600.png') }}">
                             </div> --}}
-                        {{-- <div class="item">
+                    {{-- <div class="item">
                                 <img alt="Thumb" src="{{ asset('gostart/assets/img/800x600.png') }}">
                             </div> --}}
-                        {{-- </div> --}}
+                    {{-- </div> --}}
                     {{-- </div> --}}
                 </div>
             </div>
@@ -101,8 +101,7 @@
                         <a href="{{ route('detail.berita', $list->slug) }}">
                             <div class="item-effect">
                                 <div class="thumb">
-                                    <img src="https://awsimages.detik.net.id/community/media/visual/2021/02/05/gunung-slamet_43.jpeg?w=1200"
-                                        alt="thumb">
+                                    <img src="{{ $list->preview_image }}" alt="thumb">
                                 </div>
                                 <div class="icons">
                                     <h4>

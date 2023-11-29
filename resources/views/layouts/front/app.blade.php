@@ -80,7 +80,7 @@
                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
                         <i class="fa fa-bars"></i>
                     </button>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="{{ route('index') }}">
                         <img src="{{ asset('mpp.png') }}" class="logo logo-display" alt="Logo"
                             style="width: 100px;">
                         <img src="{{ asset('mpp.png') }}" class="logo logo-scrolled" alt="Logo"
