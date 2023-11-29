@@ -56,8 +56,7 @@
                 [5, "desc"]
             ],
             ajax: window.location.href,
-            columns: [
-                {
+            columns: [{
                     data: 'DT_RowIndex',
                     name: 'DT_RowIndex',
                     orderable: false,
@@ -92,8 +91,6 @@
                 {
                     data: 'created_at',
                     name: 'created_at',
-                    orderable: false,
-                    searchable: false,
                     className: "text-left",
                     visible: false
                 },
