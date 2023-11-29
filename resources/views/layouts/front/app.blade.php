@@ -166,7 +166,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <span style="font-size: 15px;">&copy;
+                <span style="font-size: 15px;color:black;">&copy;
                     Copyright
                     @if (date('Y') == 2023)
                         2023
