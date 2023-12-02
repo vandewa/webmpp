@@ -37,7 +37,7 @@
     <!-- End Banner -->
 
     <!-- Start Our About -->
-    <div class="about-area shape-less default-padding">
+    <div class="about-area shape-less default-padding" id="profil">
         <div class="container">
             <div class="row">
                 <!-- Start About Content -->
@@ -102,7 +102,7 @@
                             <div class="item-effect">
                                 <div class="thumb">
                                     <img src="{{ $list->sampul->preview_image ?? '' }}" alt="thumb"
-                                        style="style="height:100%;width:100%;object-fit:cover"">
+                                        style="height:100%;width:100%;object-fit:cover">
                                 </div>
                                 <div class="icons">
                                     <h4>
@@ -120,6 +120,49 @@
             </div>
         </div>
     </div>
+    <!-- End Portfolio -->
+
+    <!-- Start Portfolio -->
+    <div style="margin-top:100px;">
+        <div id="prestasi" class="portfolio-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2">
+                        <div class="site-heading text-center">
+                            <h4>Kumpulan</h4>
+                            <h2><strong>Prestasi </strong>& Inovasi </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-full">
+                <div class="portfolio-items text-light masonary portfolio-carousel-3-col owl-carousel owl-theme">
+                    @foreach ($prestasi as $list)
+                        <div class="pf-item col-sm-12">
+                            <a href="{{ route('detail.berita', $list->slug) }}">
+                                <div class="item-effect">
+                                    <div class="thumb">
+                                        <img src="{{ $list->sampul->preview_image ?? '' }}" alt="thumb"
+                                            style="height:100%;width:100%;object-fit:cover">
+                                    </div>
+                                    <div class="icons">
+                                        <h4>
+                                            <a href="{{ route('detail.berita', $list->slug) }}">{{ $list->judul }}</a>
+                                        </h4>
+                                        <div class="cat">
+                                            <a href="{{ route('detail.berita', $list->slug) }}">
+                                                {{ \Carbon\Carbon::createFromTimeStamp(strtotime($list->created_at))->isoFormat('D MMMM Y') }}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- End Portfolio -->
 
     <!-- Start Our featur -->
@@ -171,6 +214,70 @@
     </div>
     <!-- End Our Features -->
 
+    <!-- Start Our featur -->
+    <div id="skm" class="features-area default-padding-top text-center bottom-less">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="site-heading text-center">
+                        <h4>SKM</h4>
+                        <h2>Survey <strong>Kepuasan </strong>Masyarakat</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- Start Features Content -->
+                <div class="col-md-12 info">
+                    <div class="info-items one-line">
+                        <div class="features">
+                            <div class="row">
+                                <a href="https://skm.wonosobokab.go.id/" target="_blank">
+                                    <img src="{{ asset('skm.png') }}" alt="" height="100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Features Content -->
+            </div>
+        </div>
+    </div>
+    <!-- End Our Features -->
+
+    <!-- Start Our featur -->
+    <div id="helpdesk" class="features-area default-padding-top text-center bottom-less">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="site-heading text-center">
+                        <h4>Helpdesk</h4>
+                        <h2><strong>Kontak </strong>Kami</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <!-- Start Features Content -->
+                <div class="col-md-12 info">
+                    <div class="info-items one-line">
+                        <div class="features">
+                            <div class="row">
+                                <a href="{{ $info_umum->wa ?? '' }}" target="_blank">
+                                    <img src="{{ asset('wa.png') }}" alt="" height="100">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- End Features Content -->
+            </div>
+        </div>
+    </div>
+    <!-- End Our Features -->
+
     <!-- Start Fun Fact Area-->
     <div class="fun-fact-area text-center default-padding">
         <div class="container">
@@ -189,21 +296,24 @@
                     <div class="col-md-4 item">
                         <div class="fun-fact">
                             <i class="flaticon-dashboard"></i>
-                            <div class="timer" data-to="{{ $hari_ini }}" data-speed="5000">{{ $hari_ini }}</div>
+                            <div class="timer" data-to="{{ $hari_ini }}" data-speed="5000">{{ $hari_ini }}
+                            </div>
                             <span class="medium">Hari ini</span>
                         </div>
                     </div>
                     <div class="col-md-4 item">
                         <div class="fun-fact">
                             <i class="flaticon-dashboard"></i>
-                            <div class="timer" data-to="{{ $bulan_ini }}" data-speed="5000">{{ $bulan_ini }}</div>
+                            <div class="timer" data-to="{{ $bulan_ini }}" data-speed="5000">{{ $bulan_ini }}
+                            </div>
                             <span class="medium">Bulan Ini</span>
                         </div>
                     </div>
                     <div class="col-md-4 item">
                         <div class="fun-fact">
                             <i class="flaticon-dashboard"></i>
-                            <div class="timer" data-to="{{ $tahun_ini }}" data-speed="5000">{{ $tahun_ini }}</div>
+                            <div class="timer" data-to="{{ $tahun_ini }}" data-speed="5000">{{ $tahun_ini }}
+                            </div>
                             <span class="medium">Tahun Ini</span>
                         </div>
                     </div>

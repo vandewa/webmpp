@@ -23,6 +23,7 @@ class BeritaStoreValidation extends FormRequest
     {
         return [
             'judul' => 'required',
+            'kategori_tp' => 'required',
             'isi_berita' => 'required',
         ];
     }

@@ -12,6 +12,10 @@
             {{ Form::text('slug', null, ['class' => 'form-control ', 'id' => 'slug', 'readonly' => true]) }}
         </div>
         <div class="form-group">
+            <label>Kategori</label>
+            {{ Form::select('kategori_tp', get_code_group('KATEGORI_TP'), null, ['class' => 'form-control ', 'placeholder' => '-- Pilih Kategori --']) }}
+        </div>
+        <div class="form-group">
             <label for="">Foto <small class="text-danger">(*max 2MB)</small></label>
             <div class="dropzone" id="my-dropzone">
             </div>

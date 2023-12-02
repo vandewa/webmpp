@@ -2,17 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attachment;
 use Carbon\Carbon;
-use App\Models\Berita;
+use App\Models\Prestasi;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
+use Yajra\DataTables\DataTables;
 use \Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Models\File as Files;
 use Illuminate\Support\Facades\File;
 
-
-class BeritaController extends Controller
+class PrestasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,15 +19,15 @@ class BeritaController extends Controller
     {
         if ($request->ajax()) {
 
-            $data = Berita::with(['kategori'])->select('*');
+            $data = Prestasi::select('*');
 
             return DataTables::of($data)
                 ->addIndexColumn()
                 ->addColumn('action', function ($data) {
                     return
                         '<div class="list-icons">
-                        <a href="' . route('berita.edit', $data->id) . '" class="btn btn-outline-primary rounded-round"><i class="far fa-plus-square mr-2"></i>Edit</a>
-                        <a href="' . route('berita.destroy', $data->id) . '" class="btn btn-outline-danger rounded-round delete-data-table"><i class="fas fa-trash mr-2"></i>Hapus</a>
+                        <a href="' . route('prestasi.edit', $data->id) . '" class="btn btn-outline-primary rounded-round"><i class="far fa-plus-square mr-2"></i>Edit</a>
+                        <a href="' . route('prestasi.destroy', $data->id) . '" class="btn btn-outline-danger rounded-round delete-data-table"><i class="fas fa-trash mr-2"></i>Hapus</a>
                     </div>';
                 })
                 ->addColumn(
@@ -49,7 +47,7 @@ class BeritaController extends Controller
                 ->make(true);
         }
 
-        return view('berita.index');
+        return view('prestasi.index');
     }
 
     /**
@@ -57,7 +55,7 @@ class BeritaController extends Controller
      */
     public function create()
     {
-        return view('berita.create');
+        return view('prestasi.create');
     }
 
     /**
@@ -65,11 +63,12 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        $berita = Berita::create([
+
+        return $request->all();
+        $berita = Prestasi::create([
             'judul' => $request->judul,
             'slug' => $request->slug,
             'isi_berita' => $request->isi_berita,
-            'kategori_tp' => $request->kategori_tp,
             'created_by' => auth()->user()->id,
         ]);
 
@@ -93,8 +92,7 @@ class BeritaController extends Controller
             ]);
         }
 
-        return redirect()->route('berita.index')->with('store', 'oke');
-
+        return redirect()->route('prestasi.index')->with('store', 'oke');
     }
 
     /**
@@ -110,9 +108,7 @@ class BeritaController extends Controller
      */
     public function edit(string $id)
     {
-        $data = Berita::find($id);
-
-        return view('berita.edit', compact('data'));
+        //
     }
 
     /**
@@ -120,29 +116,7 @@ class BeritaController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        Berita::find($id)->update([
-            'judul' => $request->judul,
-            'slug' => $request->slug,
-            'isi_berita' => $request->isi_berita,
-            'kategori_tp' => $request->kategori_tp,
-
-        ]);
-
-        if ($request->document) {
-            foreach ($request->document as $file) {
-                $path = storage_path('app/public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/');
-                $from = storage_path('tmp/uploads/' . $file);
-                $to = $path . $file;
-                File::move($from, $to);
-                Files::create([
-                    'berita_id' => $id,
-                    'nama_file' => $file,
-                    'path' => 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
-                ]);
-            }
-        }
-
-        return redirect()->route('berita.index')->with('edit', 'oke');
+        //
     }
 
     /**
@@ -150,18 +124,18 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
-        Berita::destroy($id);
+        //
     }
 
     public function checkSlug(Request $request)
     {
-        $slug = SlugService::createSlug(Berita::class, 'slug', $request->judul);
+        $slug = SlugService::createSlug(Prestasi::class, 'slug', $request->judul);
         return response()->json(['slug' => $slug]);
     }
 
     public function changeAccess(Request $request)
     {
-        $comp = Berita::where('id', $request->id)->first();
+        $comp = Prestasi::where('id', $request->id)->first();
         $comp->publish_st = !$comp->publish_st;
         $comp->save();
 

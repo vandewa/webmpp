@@ -42,6 +42,15 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="{{ route('aplikasi.index') }}"
+                          class="nav-link {{ Request::segment(1) == 'aplikasi' ? 'active' : '' }}">
+                          <i class="nav-icon fa fa-solid fa-desktop"></i>
+                          <p>
+                              List Aplikasi
+                          </p>
+                      </a>
+                  </li>
                   <li
                       class="nav-item 
                         {{ Request::segment(1) == 'sosial-media' ? ' menu-open' : '' }}
@@ -95,15 +104,6 @@
                               </a>
                           </li>
                       </ul>
-                  </li>
-                  <li class="nav-item">
-                      <a href="{{ route('aplikasi.index') }}"
-                          class="nav-link {{ Request::segment(1) == 'aplikasi' ? 'active' : '' }}">
-                          <i class="nav-icon fa fa-solid fa-desktop"></i>
-                          <p>
-                              List Aplikasi
-                          </p>
-                      </a>
                   </li>
                   <li class="nav-item mt-3">
                       <a href="{{ route('password') }}"

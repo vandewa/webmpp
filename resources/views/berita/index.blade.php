@@ -24,6 +24,7 @@
                                             <tr>
                                                 <th>No</th>
                                                 <th>Judul</th>
+                                                <th>Kategori</th>
                                                 <th>Publish</th>
                                                 <th>Tanggal</th>
                                                 <th>Aksi</th>
@@ -53,7 +54,7 @@
             dom: 'lrt',
             // responsive: true,
             "order": [
-                [5, "desc"]
+                [6, "desc"]
             ],
             ajax: window.location.href,
             columns: [{
@@ -69,6 +70,14 @@
                     orderable: false,
                     searchable: false,
                     className: "text-left"
+                },
+                {
+                    data: 'kategori.code_nm',
+                    name: 'kategori.code_nm',
+                    orderable: false,
+                    searchable: false,
+                    className: "text-left",
+                    defaultContent: '-'
                 },
                 {
                     data: 'tombol',

@@ -61,6 +61,14 @@ class HomeController extends Controller
         $this->pengunjung();
         $berita = Berita::with(['sampul', 'dibuat'])
             ->where('publish_st', 1)
+            ->where('kategori_tp', 'KATEGORI_TP_01')
+            ->orderBy('created_at', 'desc')
+            ->limit(3)
+            ->get();
+
+        $prestasi = Berita::with(['sampul', 'dibuat'])
+            ->where('publish_st', 1)
+            ->where('kategori_tp', 'KATEGORI_TP_02')
             ->orderBy('created_at', 'desc')
             ->limit(3)
             ->get();
@@ -75,7 +83,7 @@ class HomeController extends Controller
 
         $aplikasi = Aplikasi::all();
 
-        return view('home.index', compact('berita', 'hari_ini', 'bulan_ini', 'tahun_ini', 'info_umum', 'aplikasi'));
+        return view('home.index', compact('berita', 'hari_ini', 'bulan_ini', 'tahun_ini', 'info_umum', 'aplikasi', 'prestasi'));
     }
 
     public function cariBerita(Request $request)

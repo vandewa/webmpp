@@ -96,10 +96,22 @@
                             <a class="smooth-menu" href="#dashboard">Beranda</a>
                         </li>
                         <li>
+                            <a class="smooth-menu" href="#profil">Profil MPP</a>
+                        </li>
+                        <li>
                             <a class="smooth-menu" href="#berita">Berita</a>
                         </li>
                         <li>
+                            <a class="smooth-menu" href="#prestasi">Prestasi & Inovasi</a>
+                        </li>
+                        <li>
                             <a class="smooth-menu" href="#aplikasi">Daftar Aplikasi</a>
+                        </li>
+                        <li>
+                            <a class="smooth-menu" href="#skm">SKM</a>
+                        </li>
+                        <li>
+                            <a class="smooth-menu" href="#helpdesk">Helpdesk</a>
                         </li>
 
                     </ul>

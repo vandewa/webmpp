@@ -16,7 +16,8 @@ class ComCodeSeeder extends Seeder
     {
         DB::table('com_codes')->truncate();
         $data = [
-            ['code_cd' => 'JENIS_INFORMASI_PUBLIK_TP_01', 'code_nm' => 'INFORMASI WAJIB DIUMUMKAN SECARA BERKALA', 'code_group' => 'JENIS_INFORMASI_PUBLIK_TP', 'code_value' => ''],
+            ['code_cd' => 'KATEGORI_TP_01', 'code_nm' => 'Berita', 'code_group' => 'KATEGORI_TP', 'code_value' => ''],
+            ['code_cd' => 'KATEGORI_TP_02', 'code_nm' => 'Prestasi & Inovasi', 'code_group' => 'KATEGORI_TP', 'code_value' => ''],
         ];
 
         foreach ($data as $datum) {

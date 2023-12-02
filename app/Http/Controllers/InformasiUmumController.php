@@ -40,6 +40,7 @@ class InformasiUmumController extends Controller
             'yt' => $request->yt,
             'ig' => $request->ig,
             'twitter' => $request->twitter,
+            'wa' => $request->wa,
         ]);
 
         return redirect()->route('sosmed')->with('edit', 'ok');

@@ -29,6 +29,11 @@ class Berita extends Model implements Viewable
         return $this->belongsTo(User::class, 'created_by');
     }
 
+    public function kategori()
+    {
+        return $this->belongsTo(ComCode::class, 'kategori_tp');
+    }
+
     public function sluggable(): array
     {
         return [
@@ -37,6 +42,6 @@ class Berita extends Model implements Viewable
             ]
         ];
     }
-    
+
 
 }
