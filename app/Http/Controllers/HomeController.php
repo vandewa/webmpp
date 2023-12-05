@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\TransparansiAnggaran;
 use Illuminate\Support\Facades\Http;
 use App\Models\DaftarInformasiPublik;
+use App\Models\Faq;
 use Yajra\DataTables\Facades\DataTables;
 use hisorange\BrowserDetect\Parser as Browser;
 
@@ -83,7 +84,9 @@ class HomeController extends Controller
 
         $aplikasi = Aplikasi::all();
 
-        return view('home.index', compact('berita', 'hari_ini', 'bulan_ini', 'tahun_ini', 'info_umum', 'aplikasi', 'prestasi'));
+        $faq = Faq::all();
+
+        return view('home.index', compact('berita', 'hari_ini', 'bulan_ini', 'tahun_ini', 'info_umum', 'aplikasi', 'prestasi', 'faq'));
     }
 
     public function cariBerita(Request $request)

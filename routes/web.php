@@ -8,6 +8,7 @@ use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\InformasiUmumController;
 
 /*
@@ -53,5 +54,6 @@ Route::middleware([
     Route::resource('file_image', FileController::class);
     Route::resource('attachment', AttachmentController::class);
     Route::resource('aplikasi', AplikasiController::class);
+    Route::resource('faq', FaqController::class);
 
 });

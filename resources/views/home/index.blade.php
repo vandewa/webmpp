@@ -214,6 +214,53 @@
     </div>
     <!-- End Our Features -->
 
+    <!-- Start Contact Area
+                                                            ============================================= -->
+    <div id="faq" class="contact-area default-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="site-heading text-center">
+                        <h4>Pertanyaan & Jawaban</h4>
+                        <h2><strong>FAQ</strong></h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="contact-items">
+                <div class="row">
+                    <div class="col-md-12 faq">
+                        <div class="acd-items acd-arrow">
+                            <div class="panel-group symb" id="accordion">
+                                @foreach ($faq as $index => $list)
+                                    <!-- Single Item -->
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h4 class="panel-title">
+                                                <a data-toggle="collapse" data-parent="#accordion"
+                                                    href="#ac{{ $index + 1 }}">
+                                                    <strong>{{ $index + 1 }}</strong> {{ $list->pertanyaan ?? '' }}
+                                                </a>
+                                            </h4>
+                                        </div>
+                                        <div id="ac{{ $index + 1 }}" class="panel-collapse collapse">
+                                            <div class="panel-body">
+                                                {!! $list->jawaban ?? '' !!}
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- End Single Item -->
+                                @endforeach
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Contact Area -->
+
     <!-- Start Our featur -->
     <div id="skm" class="features-area default-padding-top text-center bottom-less">
         <div class="container">

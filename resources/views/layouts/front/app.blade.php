@@ -108,6 +108,9 @@
                             <a class="smooth-menu" href="#aplikasi">Daftar Aplikasi</a>
                         </li>
                         <li>
+                            <a class="smooth-menu" href="#faq">FAQ</a>
+                        </li>
+                        <li>
                             <a class="smooth-menu" href="#skm">SKM</a>
                         </li>
                         <li>

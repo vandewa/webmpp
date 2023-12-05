@@ -51,6 +51,15 @@
                           </p>
                       </a>
                   </li>
+                  <li class="nav-item">
+                      <a href="{{ route('faq.index') }}"
+                          class="nav-link {{ Request::segment(1) == 'faq' ? 'active' : '' }}">
+                          <i class="nav-icon fa fa-solid fa-list"></i>
+                          <p>
+                              FAQ
+                          </p>
+                      </a>
+                  </li>
                   <li
                       class="nav-item 
                         {{ Request::segment(1) == 'sosial-media' ? ' menu-open' : '' }}
