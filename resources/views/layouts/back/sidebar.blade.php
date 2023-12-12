@@ -65,12 +65,14 @@
                         {{ Request::segment(1) == 'sosial-media' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'kontak' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'sampul' ? ' menu-open' : '' }}
+                        {{ Request::segment(1) == 'bupati' ? ' menu-open' : '' }}
                         ">
                       <a href="#"
                           class="nav-link
                             {{ Request::segment(1) == 'sosial-media' ? ' active' : '' }}
                             {{ Request::segment(1) == 'kontak' ? ' active' : '' }}
                             {{ Request::segment(1) == 'sampul' ? ' active' : '' }}
+                            {{ Request::segment(1) == 'bupati' ? ' active' : '' }}
                       ">
                           <i class="nav-icon fas fa-info-circle"></i>
                           <p>
@@ -110,6 +112,17 @@
                                       <i class="far fa-circle nav-icon ml-3"></i>
                                   @endif
                                   <p>Sampul Gambar</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('bupati') }}"
+                                  class="nav-link {{ Request::segment(1) == 'bupati' ? 'active' : '' }}">
+                                  @if (Request::segment(1) == 'bupati')
+                                      <i class="far fa-dot-circle nav-icon ml-3"></i>
+                                  @else
+                                      <i class="far fa-circle nav-icon ml-3"></i>
+                                  @endif
+                                  <p>Bupati & Wakil</p>
                               </a>
                           </li>
                       </ul>

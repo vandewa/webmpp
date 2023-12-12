@@ -87,6 +87,29 @@ class InformasiUmumController extends Controller
         return redirect()->route('sampul')->with('edit', 'ok');
     }
 
+    public function bupati()
+    {
+        $data = InformasiUmum::where('id', 1)->first();
+
+        return view('bupati', compact('data'));
+    }
+
+    public function storeBupati(Request $request)
+    {
+        if ($request->file('bupati_path')) {
+            $path_gambar = $request->file('bupati_path')->storeAs(
+                'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM'),
+                date('Ymdhis') . '.' . $request->file('bupati_path')->extension()
+            );
+        }
+
+        InformasiUmum::where('id', 1)->first()->update([
+            'bupati_path' => $path_gambar
+        ]);
+
+        return redirect()->route('bupati')->with('edit', 'ok');
+    }
+
     public function gantiPassword()
     {
         return view('ganti-password');

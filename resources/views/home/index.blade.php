@@ -12,11 +12,12 @@
             <div class="row">
                 <div class="container"
                     style="display: flex;
-                align-items: center; /* Untuk tengah atas/bawah */
-                justify-content: center; /* Untuk tengah kiri/kanan */
-                height: 100vh; /* Mengisi tinggi viewport */">
+                        align-items: center; /* Untuk tengah atas/bawah */
+                        justify-content: center; /* Untuk tengah kiri/kanan */
+                        height: 100vh; /* Mengisi tinggi viewport */">
                     <div class="col-md-12">
                         <div class="content" style="text-align: center;">
+                            <img src="{{ asset('pemda.png') }}" alt="" style="width: 150px;">
                             <h2>MAL <span> PELAYANAN </span> PUBLIK</h2>
                         </div>
                     </div>
@@ -41,16 +42,14 @@
         <div class="container">
             <div class="row">
                 <!-- Start About Content -->
-                <div class="about-content">
+                <div class="about-content mb-4">
                     <div class="col-md-12 info">
                         <div class="content-info">
                             <div class="row">
-                                <div class="col-md-6 left-info">
+                                <div class="col-md-8 left-info">
                                     <h4>Selamat Datang di</h4>
                                     <h2>Mal Pelayanan Publik (MPP) Kabupaten Wonosobo</h2>
 
-                                </div>
-                                <div class="col-md-6 right-info">
                                     <p>
                                         <i>"Prinsip peningkatan pelayanan yang mudah, murah, aman, berkualitas, dan
                                             cepat, harus menjadi fokus penting penyelenggara layanan, sehingga
@@ -70,9 +69,32 @@
                                     <p>
                                         <b>Bupati Wonosobo.</b>
                                     </p>
+
+                                </div>
+                                <div class="col-md-4">
+                                    <div style="margin-top: 40pt;">
+                                        <img src="{{ $info_umum->preview_bupati }}" alt=""
+                                            style="max-height: 500px;">
+                                    </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+                <!-- End About -->
+
+                <br><br>
+
+                <!-- Start About Content -->
+                <div class="row">
+                    <div class="col-md-6">
+                        <div style="margin-top:10px;">
+                            <img src="{{ asset('maklumat.png') }}" alt="" style="width: 100%;">
+                        </div>
+                    </div>
+                    <div class="col-md-6 right-info">
+                        <img src="{{ asset('visimisi.png') }}" alt="" style="width: 100%;">
+
                     </div>
                 </div>
                 <!-- End About -->
@@ -215,7 +237,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                            ============================================= -->
+                                                                                                                                                                                                        ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
@@ -370,3 +392,11 @@
     </div>
     <!-- End Fun Fact Area -->
 @endsection
+
+@push('css')
+    <style>
+        p {
+            font-size: 14px;
+        }
+    </style>
+@endpush

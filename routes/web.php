@@ -50,6 +50,8 @@ Route::middleware([
     Route::post('kontak', [InformasiUmumController::class, 'storeKontak'])->name('kontak.post');
     Route::get('sampul', [InformasiUmumController::class, 'sampul'])->name('sampul');
     Route::post('sampul', [InformasiUmumController::class, 'storeSampul'])->name('sampul.post');
+    Route::get('bupati', [InformasiUmumController::class, 'bupati'])->name('bupati');
+    Route::post('bupati', [InformasiUmumController::class, 'storeBupati'])->name('bupati.post');
     Route::resource('berita', BeritaController::class);
     Route::resource('file_image', FileController::class);
     Route::resource('attachment', AttachmentController::class);
