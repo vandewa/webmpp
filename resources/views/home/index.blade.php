@@ -135,8 +135,8 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <div class="site-heading text-center">
-                        <h4>Daftar</h4>
-                        <h2><strong>Instansi</strong> & Layanannya</h2>
+                        {{-- <h4>Daftar</h4> --}}
+                        <h2>Daftar <strong>Penyelenggara</strong></h2>
                     </div>
                 </div>
             </div>
@@ -295,7 +295,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
