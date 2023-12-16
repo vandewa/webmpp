@@ -130,17 +130,34 @@
     </div>
     <!-- End Our About -->
 
-    <div id="features" class="features-area bg-gray shape default-padding" style="margin-bottom: 20px;">
+    <div id="services" class="features-area bg-gray shape default-padding" style="margin-bottom:20px;">
         <div class="container">
-            <div class="row align-items-center counter-wrapper gy-6 text-center">
-                @foreach ($penyelenggara as $list)
-                    <a href="{{ route('organisasi', $list->id) }}" target="_blank">
-                        <div class="col-md-2">
-                            <h3 class="bg-light rounded p-2">{{ $list->nama_opd ?? '' }}</h3>
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <div class="site-heading text-center">
+                        <h4>Daftar</h4>
+                        <h2><strong>Instansi</strong> & Layanannya</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center">
+                <div class="row">
+                    @foreach ($penyelenggara as $list)
+                        <!-- Single Item -->
+                        <div class="col-md-2"
+                            style="box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+                    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width:auto; height:auto; margin-bottom:30px; margin-right:30px;">
+                            <a href="{{ route('organisasi', $list->id) }}">
+                                <div class="item">
+                                    <h3>{{ $list->nama_opd ?? '' }}</h3>
+                                </div>
+                            </a>
                         </div>
-                    </a>
-                @endforeach
+                        <!-- End Single Item -->
+                    @endforeach
 
+                </div>
             </div>
         </div>
     </div>
@@ -278,7 +295,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
