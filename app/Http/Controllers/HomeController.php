@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Aplikasi;
+use App\Models\Penyelenggara;
 use Carbon\Carbon;
 use App\Models\Menu;
 use App\Models\Berita;
@@ -86,7 +87,10 @@ class HomeController extends Controller
 
         $faq = Faq::all();
 
-        return view('home.index', compact('berita', 'hari_ini', 'bulan_ini', 'tahun_ini', 'info_umum', 'aplikasi', 'prestasi', 'faq'));
+        $penyelenggara = Penyelenggara::all();
+
+
+        return view('home.index', compact('berita', 'hari_ini', 'bulan_ini', 'tahun_ini', 'info_umum', 'aplikasi', 'prestasi', 'faq', 'penyelenggara'));
     }
 
     public function cariBerita(Request $request)
@@ -152,6 +156,14 @@ class HomeController extends Controller
         $data = Menu::where('slug', $id)->first();
 
         return view('detail-halaman', compact('data'));
+
+    }
+
+    public function organisasi($id)
+    {
+        $data = Penyelenggara::where('id', $id)->first();
+
+        return view('organisasi', compact('data'));
 
     }
 

@@ -110,6 +110,37 @@ class InformasiUmumController extends Controller
         return redirect()->route('bupati')->with('edit', 'ok');
     }
 
+    public function visi()
+    {
+        $data = InformasiUmum::where('id', 1)->first();
+
+        return view('visi', compact('data'));
+    }
+
+    public function storeVisi(Request $request)
+    {
+        InformasiUmum::where('id', 1)->first()->update([
+            'visi' => $request->visi,
+        ]);
+
+        return redirect()->route('visi')->with('edit', 'ok');
+    }
+    public function arti()
+    {
+        $data = InformasiUmum::where('id', 1)->first();
+
+        return view('arti', compact('data'));
+    }
+
+    public function storeArti(Request $request)
+    {
+        InformasiUmum::where('id', 1)->first()->update([
+            'arti' => $request->arti,
+        ]);
+
+        return redirect()->route('arti')->with('edit', 'ok');
+    }
+
     public function gantiPassword()
     {
         return view('ganti-password');

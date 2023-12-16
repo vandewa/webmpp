@@ -15,12 +15,30 @@
                         align-items: center; /* Untuk tengah atas/bawah */
                         justify-content: center; /* Untuk tengah kiri/kanan */
                         height: 100vh; /* Mengisi tinggi viewport */">
-                    <div class="col-md-12">
-                        <div class="content" style="text-align: center;">
-                            <img src="{{ asset('pemda.png') }}" alt="" style="width: 150px;">
-                            <h2>MAL <span> PELAYANAN </span> PUBLIK</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="content" style="text-align: center;">
+                                <img src="{{ asset('pemda.png') }}" alt="" style="width: 200px;">
+                                <h2>MAL <span> PELAYANAN </span> PUBLIK</h2>
+                                <br>
+
+                            </div>
                         </div>
+                        <div class="col-md-12">
+                            <div style="background: white; width:300px;  margin: 0 auto;">
+                                <p style="color: black;">
+                                    <b>Jam Operasional Pelayanan</b><br>
+                                    <b>Senin - Kamis 08.00-15.00</b><br>
+                                    <b>Jumat 08.00-10.00</b><br>
+                                </p>
+                            </div>
+                        </div>
+
+
                     </div>
+
+
+
                     {{-- <div class="col-md-8 col-md-offset-2"> --}}
                     {{-- <div class="banner banner-carousel owl-carousel owl-theme"> --}}
                     {{-- <div class="item">
@@ -93,16 +111,39 @@
                         </div>
                     </div>
                     <div class="col-md-6 right-info">
-                        <img src="{{ asset('visimisi.png') }}" alt="" style="width: 100%;">
+                        <div style="margin-top: 1%;">
+                            {!! $info_umum->visi ?? '' !!}
+                        </div>
 
                     </div>
                 </div>
                 <!-- End About -->
 
+                <div class="row" style="margin-top:20px;">
+                    <div class="col-md-12">
+                        {!! $info_umum->arti ?? '' !!}
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>
     <!-- End Our About -->
+
+    <div id="features" class="features-area bg-gray shape default-padding" style="margin-bottom: 20px;">
+        <div class="container">
+            <div class="row align-items-center counter-wrapper gy-6 text-center">
+                @foreach ($penyelenggara as $list)
+                    <a href="{{ route('organisasi', $list->id) }}" target="_blank">
+                        <div class="col-md-2">
+                            <h3 class="bg-light rounded p-2">{{ $list->nama_opd ?? '' }}</h3>
+                        </div>
+                    </a>
+                @endforeach
+
+            </div>
+        </div>
+    </div>
 
     <!-- Start Portfolio -->
     <div id="berita" class="portfolio-area">
@@ -237,7 +278,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
@@ -391,6 +432,7 @@
         </div>
     </div>
     <!-- End Fun Fact Area -->
+
 @endsection
 
 @push('css')

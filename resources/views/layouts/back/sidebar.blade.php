@@ -43,6 +43,15 @@
                       </a>
                   </li>
                   <li class="nav-item">
+                      <a href="{{ route('penyelenggara.index') }}"
+                          class="nav-link {{ Request::segment(1) == 'penyelenggara' ? 'active' : '' }}">
+                          <i class="nav-icon far fa-building"></i>
+                          <p>
+                              Penyelenggara
+                          </p>
+                      </a>
+                  </li>
+                  <li class="nav-item">
                       <a href="{{ route('aplikasi.index') }}"
                           class="nav-link {{ Request::segment(1) == 'aplikasi' ? 'active' : '' }}">
                           <i class="nav-icon fa fa-solid fa-desktop"></i>
@@ -66,6 +75,8 @@
                         {{ Request::segment(1) == 'kontak' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'sampul' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'bupati' ? ' menu-open' : '' }}
+                        {{ Request::segment(1) == 'visi' ? ' menu-open' : '' }}
+                        {{ Request::segment(1) == 'arti' ? ' menu-open' : '' }}
                         ">
                       <a href="#"
                           class="nav-link
@@ -73,6 +84,8 @@
                             {{ Request::segment(1) == 'kontak' ? ' active' : '' }}
                             {{ Request::segment(1) == 'sampul' ? ' active' : '' }}
                             {{ Request::segment(1) == 'bupati' ? ' active' : '' }}
+                            {{ Request::segment(1) == 'visi' ? ' active' : '' }}
+                            {{ Request::segment(1) == 'arti' ? ' active' : '' }}
                       ">
                           <i class="nav-icon fas fa-info-circle"></i>
                           <p>
@@ -81,6 +94,28 @@
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ route('visi') }}"
+                                  class="nav-link {{ Request::segment(1) == 'visi' ? 'active' : '' }}">
+                                  @if (Request::segment(1) == 'visi')
+                                      <i class="far fa-dot-circle nav-icon ml-3"></i>
+                                  @else
+                                      <i class="far fa-circle nav-icon ml-3"></i>
+                                  @endif
+                                  <p>Visi | Misi | Motto</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('arti') }}"
+                                  class="nav-link {{ Request::segment(1) == 'arti' ? 'active' : '' }}">
+                                  @if (Request::segment(1) == 'arti')
+                                      <i class="far fa-dot-circle nav-icon ml-3"></i>
+                                  @else
+                                      <i class="far fa-circle nav-icon ml-3"></i>
+                                  @endif
+                                  <p>Arti Logo</p>
+                              </a>
+                          </li>
                           <li class="nav-item">
                               <a href="{{ route('sosmed') }}"
                                   class="nav-link {{ Request::segment(1) == 'sosial-media' ? 'active' : '' }}">

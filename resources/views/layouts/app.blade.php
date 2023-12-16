@@ -210,6 +210,44 @@
             });
         })
     </script>
+    <script>
+        $(function() {
+            // Summernote
+            $('#summernote2').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontsize', ['fontsize']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                ]
+            });
+        })
+    </script>
+    <script>
+        $(function() {
+            // Summernote
+            $('#summernote3').summernote({
+                toolbar: [
+                    // [groupName, [list of button]]
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['fontsize', ['fontsize']],
+                    ['fontname', ['fontname']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']],
+                ]
+            });
+        })
+    </script>
     <script src="{{ asset('AdminLTE/plugins/datatables/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('AdminLTE/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
     <script src="{{ asset('AdminLTE/plugins/datatables-responsive/js/dataTables.responsive.min.js') }}"></script>

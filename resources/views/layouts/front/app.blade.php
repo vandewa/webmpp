@@ -92,30 +92,57 @@
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="navbar-menu">
                     <ul class="nav navbar-nav navbar-right" data-in="#" data-out="#">
-                        <li>
-                            <a class="smooth-menu" href="#dashboard">Beranda</a>
-                        </li>
-                        <li>
-                            <a class="smooth-menu" href="#profil">Profil MPP</a>
-                        </li>
-                        <li>
-                            <a class="smooth-menu" href="#berita">Berita</a>
-                        </li>
-                        <li>
-                            <a class="smooth-menu" href="#prestasi">Prestasi & Inovasi</a>
-                        </li>
-                        <li>
-                            <a class="smooth-menu" href="#aplikasi">Daftar Aplikasi</a>
-                        </li>
-                        <li>
-                            <a class="smooth-menu" href="#faq">FAQ</a>
-                        </li>
-                        <li>
-                            <a class="smooth-menu" href="#skm">SKM</a>
-                        </li>
-                        <li>
-                            <a class="smooth-menu" href="#helpdesk">Helpdesk</a>
-                        </li>
+                        @if (Request::segment(1) == '')
+                            <li>
+                                <a class="smooth-menu" href="#dashboard">Beranda</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="#profil">Profil MPP</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="#berita">Berita</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="#prestasi">Prestasi & Inovasi</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="#aplikasi">Daftar Aplikasi</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="#faq">FAQ</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="#skm">SKM</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="#helpdesk">Helpdesk</a>
+                            </li>
+                        @else
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">Beranda</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">Profil MPP</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">Berita</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">Prestasi & Inovasi</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">Daftar Aplikasi</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">FAQ</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">SKM</a>
+                            </li>
+                            <li>
+                                <a class="smooth-menu" href="{{ route('index') }}">Helpdesk</a>
+                            </li>
+                        @endif
 
                     </ul>
                 </div><!-- /.navbar-collapse -->

@@ -1,15 +1,16 @@
 <?php
 
-use App\Http\Controllers\AplikasiController;
-use App\Http\Controllers\AttachmentController;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\AplikasiController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\FaqController;
+use App\Http\Controllers\AttachmentController;
 use App\Http\Controllers\InformasiUmumController;
+use App\Http\Controllers\PenyelenggaraController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,7 @@ Route::get('/', [HomeController::class, 'index'])->name('index');
 Route::get('/news/{id}', [HomeController::class, 'berita'])->name('detail.berita');
 Route::get('/news-list', [HomeController::class, 'listNews'])->name('news.list');
 Route::get('/page/{id}', [HomeController::class, 'halaman'])->name('halaman');
+Route::get('/organisasi/{id}', [HomeController::class, 'organisasi'])->name('organisasi');
 
 
 //dokumentasi template
@@ -52,10 +54,15 @@ Route::middleware([
     Route::post('sampul', [InformasiUmumController::class, 'storeSampul'])->name('sampul.post');
     Route::get('bupati', [InformasiUmumController::class, 'bupati'])->name('bupati');
     Route::post('bupati', [InformasiUmumController::class, 'storeBupati'])->name('bupati.post');
+    Route::get('visi', [InformasiUmumController::class, 'visi'])->name('visi');
+    Route::post('visi', [InformasiUmumController::class, 'storeVisi'])->name('visi.post');
+    Route::get('arti', [InformasiUmumController::class, 'arti'])->name('arti');
+    Route::post('arti', [InformasiUmumController::class, 'storeArti'])->name('arti.post');
     Route::resource('berita', BeritaController::class);
     Route::resource('file_image', FileController::class);
     Route::resource('attachment', AttachmentController::class);
     Route::resource('aplikasi', AplikasiController::class);
     Route::resource('faq', FaqController::class);
+    Route::resource('penyelenggara', PenyelenggaraController::class);
 
 });
