@@ -28,8 +28,8 @@
                             <div style="background: white; width:300px;  margin: 0 auto;">
                                 <p style="color: black;">
                                     <b>Jam Operasional Pelayanan</b><br>
-                                    <b>Senin - Kamis 08.00-15.00</b><br>
-                                    <b>Jumat 08.00-10.00</b><br>
+                                    <b>Senin - Kamis 08.00-15.30</b><br>
+                                    <b>Jumat 08.00-10.30</b><br>
                                 </p>
                             </div>
                         </div>
@@ -295,7 +295,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
