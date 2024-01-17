@@ -143,19 +143,22 @@
             <div class="text-center">
                 <div class="row">
                     @foreach ($penyelenggara as $list)
-                        <!-- Single Item -->
-                        <div class="col-md-2"
-                            style="box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-                    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-                    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); width:auto; height:auto; margin-bottom:30px; margin-right:30px;">
-                            <a href="{{ route('organisasi', $list->id) }}">
-                                <div class="item">
-                                    <h3>{{ $list->nama_opd ?? '' }}</h3>
-                                </div>
-                            </a>
-                        </div>
-                        <!-- End Single Item -->
-                    @endforeach
+                <a href="{{ route('organisasi', $list->id) }}" class="btn text-wrap"
+                    style="white-space: normal; background-color:  #134266; color: white; border-radius: 19px; margin-bottom: 20px; width: 200px; text-align: left;"
+                    onMouseOver="this.style.color='#FF4452'" onMouseOut="this.style.color='#FFF'">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td style="width: 25px; text-align: center;">{{ $loop->iteration }}</td>
+                                <td style="text-align: center;">{{ $list->nama_opd ?? '' }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </a>
+                @if($loop->iteration % 5 == 0)
+                <br>
+                @endif
+                @endforeach
 
                 </div>
             </div>
