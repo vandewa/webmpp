@@ -140,6 +140,22 @@ class InformasiUmumController extends Controller
 
         return redirect()->route('arti')->with('edit', 'ok');
     }
+    public function operasional()
+    {
+        $data = InformasiUmum::where('id', 1)->first();
+
+        return view('operasional', compact('data'));
+    }
+
+
+    public function storeOperasional(Request $request)
+    {
+        InformasiUmum::where('id', 1)->first()->update([
+            'operasional' => $request->operasional,
+        ]);
+
+        return redirect()->route('operasional')->with('edit', 'ok');
+    }
 
     public function gantiPassword()
     {

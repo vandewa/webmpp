@@ -77,6 +77,7 @@
                         {{ Request::segment(1) == 'bupati' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'visi' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'arti' ? ' menu-open' : '' }}
+                        {{ Request::segment(1) == 'operasional' ? ' menu-open' : '' }}
                         ">
                       <a href="#"
                           class="nav-link
@@ -86,6 +87,7 @@
                             {{ Request::segment(1) == 'bupati' ? ' active' : '' }}
                             {{ Request::segment(1) == 'visi' ? ' active' : '' }}
                             {{ Request::segment(1) == 'arti' ? ' active' : '' }}
+                            {{ Request::segment(1) == 'operasional' ? ' active' : '' }}
                       ">
                           <i class="nav-icon fas fa-info-circle"></i>
                           <p>
@@ -94,6 +96,17 @@
                           </p>
                       </a>
                       <ul class="nav nav-treeview">
+                          <li class="nav-item">
+                              <a href="{{ route('operasional') }}"
+                                  class="nav-link {{ Request::segment(1) == 'operasional' ? 'active' : '' }}">
+                                  @if (Request::segment(1) == 'operasional')
+                                      <i class="far fa-dot-circle nav-icon ml-3"></i>
+                                  @else
+                                      <i class="far fa-circle nav-icon ml-3"></i>
+                                  @endif
+                                  <p>Jam Operasional</p>
+                              </a>
+                          </li>
                           <li class="nav-item">
                               <a href="{{ route('visi') }}"
                                   class="nav-link {{ Request::segment(1) == 'visi' ? 'active' : '' }}">

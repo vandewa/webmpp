@@ -58,6 +58,8 @@ Route::middleware([
     Route::post('visi', [InformasiUmumController::class, 'storeVisi'])->name('visi.post');
     Route::get('arti', [InformasiUmumController::class, 'arti'])->name('arti');
     Route::post('arti', [InformasiUmumController::class, 'storeArti'])->name('arti.post');
+    Route::get('operasional', [InformasiUmumController::class, 'operasional'])->name('operasional');
+    Route::post('operasional', [InformasiUmumController::class, 'storeOperasional'])->name('operasional.post');
     Route::resource('berita', BeritaController::class);
     Route::resource('file_image', FileController::class);
     Route::resource('attachment', AttachmentController::class);

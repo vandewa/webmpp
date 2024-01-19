@@ -26,11 +26,7 @@
                         </div>
                         <div class="col-md-12">
                             <div style="background: white; width:300px;  margin: 0 auto;">
-                                <p style="color: black;">
-                                    <b>Jam Operasional Pelayanan</b><br>
-                                    <b>Senin - Kamis 08.00-15.30</b><br>
-                                    <b>Jumat 08.00-10.30</b><br>
-                                </p>
+                                {!! $info_umum->operasional ?? '' !!}
                             </div>
                         </div>
 
@@ -143,22 +139,22 @@
             <div class="text-center">
                 <div class="row">
                     @foreach ($penyelenggara as $list)
-                <a href="{{ route('organisasi', $list->id) }}" class="btn text-wrap"
-                    style="white-space: normal; background-color:  #134266; color: white; border-radius: 19px; margin-bottom: 20px; width: 200px; text-align: left;"
-                    onMouseOver="this.style.color='#FF4452'" onMouseOut="this.style.color='#FFF'">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <td style="width: 25px; text-align: center;">{{ $loop->iteration }}</td>
-                                <td style="text-align: center;">{{ $list->nama_opd ?? '' }}</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </a>
-                @if($loop->iteration % 5 == 0)
-                <br>
-                @endif
-                @endforeach
+                        <a href="{{ route('organisasi', $list->id) }}" class="btn text-wrap"
+                            style="white-space: normal; background-color:  #134266; color: white; border-radius: 19px; margin-bottom: 20px; width: 200px; text-align: left;"
+                            onMouseOver="this.style.color='#FF4452'" onMouseOut="this.style.color='#FFF'">
+                            <table>
+                                <tbody>
+                                    <tr>
+                                        <td style="width: 25px; text-align: center;">{{ $loop->iteration }}</td>
+                                        <td style="text-align: center;">{{ $list->nama_opd ?? '' }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </a>
+                        @if ($loop->iteration % 5 == 0)
+                            <br>
+                        @endif
+                    @endforeach
 
                 </div>
             </div>
@@ -298,7 +294,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
