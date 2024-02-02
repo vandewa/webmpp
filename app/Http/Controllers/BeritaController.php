@@ -74,12 +74,14 @@ class BeritaController extends Controller
             'created_by' => auth()->user()->id,
         ]);
 
-        foreach ($request->document as $file) {
-            Files::create([
-                'berita_id' => $berita->id,
-                'nama_file' => $file,
-                'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
-            ]);
+        if ($request->document) {
+            foreach ($request->document as $file) {
+                Files::create([
+                    'berita_id' => $berita->id,
+                    'nama_file' => $file,
+                    'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
+                ]);
+            }
         }
 
         return redirect()->route('berita.index')->with('store', 'oke');
