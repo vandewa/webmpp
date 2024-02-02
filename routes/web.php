@@ -6,6 +6,7 @@ use App\Http\Controllers\FaqController;
 use App\Http\Controllers\FileController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BeritaController;
+use App\Http\Controllers\HelperController;
 use App\Http\Controllers\AplikasiController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AttachmentController;
@@ -66,5 +67,6 @@ Route::middleware([
     Route::resource('aplikasi', AplikasiController::class);
     Route::resource('faq', FaqController::class);
     Route::resource('penyelenggara', PenyelenggaraController::class);
+    Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 });

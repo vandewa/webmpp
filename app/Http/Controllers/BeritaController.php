@@ -65,7 +65,7 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->all());
+        // dd($request->all());
         $berita = Berita::create([
             'judul' => $request->judul,
             'slug' => $request->slug,
@@ -75,13 +75,10 @@ class BeritaController extends Controller
         ]);
 
         foreach ($request->document as $file) {
-
-            $nama_file = date('Ymdhis') . '.' . \File::extension($file);
-
             Files::create([
                 'berita_id' => $berita->id,
-                'nama_file' => $nama_file,
-                'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $nama_file
+                'nama_file' => $file,
+                'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
             ]);
         }
 
@@ -121,14 +118,14 @@ class BeritaController extends Controller
 
         if ($request->document) {
             foreach ($request->document as $file) {
-                $path = storage_path('app/public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/');
-                $from = storage_path('tmp/uploads/' . $file);
-                $to = $path . $file;
-                File::move($from, $to);
+                // $path = storage_path('app/public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/');
+                // $from = storage_path('tmp/uploads/' . $file);
+                // $to = $path . $file;
+                // File::move($from, $to);
                 Files::create([
                     'berita_id' => $id,
                     'nama_file' => $file,
-                    'path' => 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
+                    'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
                 ]);
             }
         }

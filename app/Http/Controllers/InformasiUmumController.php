@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use App\Models\LinkTerkait;
 use Illuminate\Http\Request;
 use App\Models\InformasiUmum;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\Facades\DataTables;
 
 class InformasiUmumController extends Controller
@@ -76,7 +77,8 @@ class InformasiUmumController extends Controller
         if ($request->file('path_gambar')) {
             $path_gambar = $request->file('path_gambar')->storeAs(
                 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM'),
-                date('Ymdhis') . '.' . $request->file('path_gambar')->extension()
+                date('Ymdhis') . '.' . $request->file('path_gambar')->extension(),
+                'gcs'
             );
         }
 
@@ -99,7 +101,8 @@ class InformasiUmumController extends Controller
         if ($request->file('bupati_path')) {
             $path_gambar = $request->file('bupati_path')->storeAs(
                 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM'),
-                date('Ymdhis') . '.' . $request->file('bupati_path')->extension()
+                date('Ymdhis') . '.' . $request->file('bupati_path')->extension(),
+                'gcs'
             );
         }
 

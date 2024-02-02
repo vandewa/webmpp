@@ -18,7 +18,8 @@
 
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <img src="{{ $data->preview_bupati }}" alt="" width="100%;">
+                                        <img src="{{ route('helper.show-picture', ['path' => $data->bupati_path]) }}"
+                                            alt="" width="100%;">
                                     </div>
                                     <div class="col-md-6">
                                         <input type="file" name="bupati_path" placeholder="Choose image" id="picture"

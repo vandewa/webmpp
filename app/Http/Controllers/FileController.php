@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Berita;
 use App\Models\File;
 use Illuminate\Support\Facades\Storage;
+use Carbon\Carbon;
 
 class FileController extends Controller
 {
@@ -32,7 +33,7 @@ class FileController extends Controller
     {
         $file = $request->file('file');
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
-        $path = $file->storeAs('berita', $name, 'gcs');
+        $path = $file->storeAs('berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/', $name, 'gcs');
         return response()->json([
             'name' => $name,
             'original_name' => $file->getClientOriginalName(),
@@ -50,7 +51,7 @@ class FileController extends Controller
             $fileList[] = [
                 'name' => $d->nama_file,
                 'size' => Storage::size(($d->path)),
-                'path' => route('helper.show-picture', array('path' => $d->preview_image))
+                'path' => route('helper.show-picture', array('path' => $d->path))
             ];
         }
         return json_encode($fileList ?? []);
@@ -79,12 +80,12 @@ class FileController extends Controller
     {
         $data = File::where('nama_file', $id)->first();
 
+        // Delete the file
+        Storage::disk('gcs')->delete($data->path);
+
         if ($data) {
             $data->delete();
         }
-
-        // Delete the file
-        Storage::delete('berita' . $id);
 
         return response()->json([
             'response' => 'File terhapus'
