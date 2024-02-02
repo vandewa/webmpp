@@ -65,6 +65,7 @@ class BeritaController extends Controller
      */
     public function store(Request $request)
     {
+        dd($request->all());
         $berita = Berita::create([
             'judul' => $request->judul,
             'slug' => $request->slug,
@@ -77,24 +78,14 @@ class BeritaController extends Controller
 
             $nama_file = date('Ymdhis') . '.' . \File::extension($file);
 
-            $path = storage_path('app/public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/');
-
-            if (!file_exists($path)) {
-                mkdir($path, 0777, true);
-            }
-
-            $from = storage_path('tmp/uploads/' . $file);
-            $to = $path . $nama_file;
-            File::move($from, $to);
             Files::create([
                 'berita_id' => $berita->id,
                 'nama_file' => $nama_file,
-                'path' => 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $nama_file
+                'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $nama_file
             ]);
         }
 
         return redirect()->route('berita.index')->with('store', 'oke');
-
     }
 
     /**

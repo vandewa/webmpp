@@ -20,6 +20,7 @@
         "mobiledetect/mobiledetectlib": "^2.8",
         "proengsoft/laravel-jsvalidation": "^4.8",
         "torann/geoip": "^3.0",
+        "spatie/laravel-google-cloud-storage": "^2.2",
         "yajra/laravel-datatables-oracle": "10.3.1"
     },
     "require-dev": {

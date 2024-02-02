@@ -51,7 +51,8 @@ class AplikasiController extends Controller
         if ($request->file('logo')) {
             $logo = $request->file('logo')->storeAs(
                 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM'),
-                date('Ymdhis') . '.' . $request->file('logo')->extension()
+                date('Ymdhis') . '.' . $request->file('logo')->extension(),
+                'gcs'
             );
         }
 
@@ -63,7 +64,6 @@ class AplikasiController extends Controller
         ]);
 
         return redirect()->route('aplikasi.index')->with('store', 'oke');
-
     }
 
     /**
@@ -108,7 +108,6 @@ class AplikasiController extends Controller
         }
 
         return redirect()->route('aplikasi.index')->with('edit', 'oke');
-
     }
 
     /**

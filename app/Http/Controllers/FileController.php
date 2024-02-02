@@ -30,22 +30,14 @@ class FileController extends Controller
      */
     public function store(Request $request)
     {
-        $path = storage_path('tmp/uploads');
-
-        if (!file_exists($path)) {
-            mkdir($path, 0777, true);
-        }
-
         $file = $request->file('file');
         $name = uniqid() . '_' . trim($file->getClientOriginalName());
-        $file->move($path, $name);
-
+        $path = $file->storeAs('berita', $name, 'gcs');
         return response()->json([
             'name' => $name,
             'original_name' => $file->getClientOriginalName(),
-            'path' => $path . $name
+            'path' => $path
         ]);
-
     }
 
     /**
@@ -58,7 +50,7 @@ class FileController extends Controller
             $fileList[] = [
                 'name' => $d->nama_file,
                 'size' => Storage::size(($d->path)),
-                'path' => $d->preview_image
+                'path' => route('helper.show-picture', array('path' => $d->preview_image))
             ];
         }
         return json_encode($fileList ?? []);
@@ -85,20 +77,17 @@ class FileController extends Controller
      */
     public function destroy($id)
     {
-        $loc = storage_path('tmp/uploads/') . $id;
+        $data = File::where('nama_file', $id)->first();
 
-        if (file_exists($loc)) {
-            unlink(storage_path('tmp/uploads/' . $id));
-            return response()->json([
-                'lokasi' => $loc,
-            ]);
-        } else {
-            $data = File::where('nama_file', $id)->first();
-            unlink((str_replace('public', 'storage', $data->path)));
+        if ($data) {
             $data->delete();
-            return response()->json([
-                'lokasi' => 'File terhapus'
-            ]);
         }
+
+        // Delete the file
+        Storage::delete('berita' . $id);
+
+        return response()->json([
+            'response' => 'File terhapus'
+        ]);
     }
 }
