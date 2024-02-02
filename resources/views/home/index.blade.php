@@ -6,7 +6,7 @@
 @section('content')
     <!-- Start Banner-->
     <div class="banner-area shape auto-height text-center text-normal text-light shadow dark-hard bg-fixed"
-        style="background-image: url({{ $info_umum->preview_image }}); height:100%;width:100%object-fit:cover;"
+        style="background-image: url({{ route('helper.show-picture', ['path' => $info_umum->path_gambar]) }}); height:100%;width:100%object-fit:cover;"
         id="dashboard">
         <div class="container">
             <div class="row">
@@ -294,7 +294,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
