@@ -23,7 +23,8 @@
         </div>
         @if (Request::segment(2) != 'create')
             <div class="col-md-12">
-                <img src="{{ $data->preview_image }}" alt="" width="100%;">
+                <img src="{{ route('helper.show-picture', ['path' => $data->logo]) }}" alt=""
+                    max-height="500px;">
             </div>
         @endif
         <div class="col-md-12">
