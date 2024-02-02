@@ -25,7 +25,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
         if (env('APP_ENV') !== 'local') {
-            // $this->app['request']->server->set('HTTPS', true);
+            $this->app['request']->server->set('HTTPS', true);
             $visitor = DB::table('visitors')->count();
             View::share('visitor', $visitor);
             $pembaca = DB::table('views')->count();
