@@ -87,8 +87,8 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div style="margin-top: 40pt;">
-                                        <img src="{{ $info_umum->preview_bupati }}" alt=""
-                                            style="max-height: 500px;">
+                                        <img src="{{ route('helper.show-picture', ['path' => $info_umum->bupati_path]) }}"
+                                            alt="" style="max-height: 500px;">
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +294,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
