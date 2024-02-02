@@ -180,8 +180,8 @@
                         <a href="{{ route('detail.berita', $list->slug) }}">
                             <div class="item-effect">
                                 <div class="thumb">
-                                    <img src="{{ $list->sampul->preview_image ?? '' }}" alt="thumb"
-                                        style="height:100%;width:100%;object-fit:cover">
+                                    <img src="{{ route('helper.show-picture', ['path' => $list->sampul->path]) }}"
+                                        alt="thumb" style="height:100%;width:100%;object-fit:cover">
                                 </div>
                                 <div class="icons">
                                     <h4>
@@ -221,8 +221,8 @@
                             <a href="{{ route('detail.berita', $list->slug) }}">
                                 <div class="item-effect">
                                     <div class="thumb">
-                                        <img src="{{ $list->sampul->preview_image ?? '' }}" alt="thumb"
-                                            style="height:100%;width:100%;object-fit:cover">
+                                        <img src="{{ route('helper.show-picture', ['path' => $list->sampul->path]) }}"
+                                            alt="thumb" style="height:100%;width:100%;object-fit:cover">
                                     </div>
                                     <div class="icons">
                                         <h4>
@@ -294,7 +294,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
