@@ -267,8 +267,8 @@
                                     <!-- Single item -->
                                     <div class="single-item col-md-3 col-sm-6">
                                         <div class="item wow fadeInUp" data-wow-delay="400ms">
-                                            <img src="{{ $list->preview_image ?? '' }}" alt=""
-                                                style="max-height: 200px;">
+                                            <img src="{{ route('helper.show-picture', ['path' => $list->logo]) }}"
+                                                alt="" style="max-height: 200px;">
                                             <br><br>
                                             <a href="{{ $list->url ?? '' }}" target="_blank">
                                                 <h4>{{ $list->nama ?? '' }}</h4>
@@ -294,7 +294,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
