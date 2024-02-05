@@ -29,7 +29,7 @@ Route::get('/news/{id}', [HomeController::class, 'berita'])->name('detail.berita
 Route::get('/news-list', [HomeController::class, 'listNews'])->name('news.list');
 Route::get('/page/{id}', [HomeController::class, 'halaman'])->name('halaman');
 Route::get('/organisasi/{id}', [HomeController::class, 'organisasi'])->name('organisasi');
-
+Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
 
 //dokumentasi template
 Route::get('docs', function () {
@@ -67,6 +67,4 @@ Route::middleware([
     Route::resource('aplikasi', AplikasiController::class);
     Route::resource('faq', FaqController::class);
     Route::resource('penyelenggara', PenyelenggaraController::class);
-    Route::get('show-picture}', [HelperController::class, 'showPicture'])->name('helper.show-picture');
-
 });
