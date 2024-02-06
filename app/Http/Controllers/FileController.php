@@ -81,7 +81,7 @@ class FileController extends Controller
         $data = File::where('nama_file', $id)->first();
 
         // Delete the file
-        Storage::disk('gcs')->delete($data->path);
+        Storage::disk('gcs')->delete('webmpp/' . $data->path);
 
         if ($data) {
             $data->delete();
