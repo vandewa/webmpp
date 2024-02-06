@@ -30,6 +30,8 @@ Route::get('/news-list', [HomeController::class, 'listNews'])->name('news.list')
 Route::get('/page/{id}', [HomeController::class, 'halaman'])->name('halaman');
 Route::get('/organisasi/{id}', [HomeController::class, 'organisasi'])->name('organisasi');
 Route::get('show-picture', [HelperController::class, 'showPicture'])->name('helper.show-picture');
+Route::get('hapus/{id}', [FileController::class, 'hapus'])->name('hapus');
+
 
 //dokumentasi template
 Route::get('docs', function () {

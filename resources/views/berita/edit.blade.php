@@ -64,12 +64,8 @@
                 $('form').find('input[name="document[]"][value="' + name + '"]').remove();
 
                 $.ajax({
-                    url: `/file_image/${name}`,
-                    type: "DELETE",
-                    cache: false,
-                    data: {
-                        "_token": token
-                    },
+                    url: `/hapus/${name}`,
+                    type: "GET",
                     success: function(response) {
                         console.log(response);
                     }

@@ -2,14 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Attachment;
 use Carbon\Carbon;
 use App\Models\Berita;
+use App\Models\Attachment;
 use Illuminate\Http\Request;
-use Yajra\DataTables\Facades\DataTables;
-use \Cviebrock\EloquentSluggable\Services\SlugService;
 use App\Models\File as Files;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
+use Yajra\DataTables\Facades\DataTables;
+use \Cviebrock\EloquentSluggable\Services\SlugService;
 
 
 class BeritaController extends Controller
@@ -79,7 +80,7 @@ class BeritaController extends Controller
                 Files::create([
                     'berita_id' => $berita->id,
                     'nama_file' => $file,
-                    'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
+                    'path' => 'berita/' . $file
                 ]);
             }
         }
@@ -127,7 +128,7 @@ class BeritaController extends Controller
                 Files::create([
                     'berita_id' => $id,
                     'nama_file' => $file,
-                    'path' => 'berita/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM') . '/' . $file
+                    'path' => 'berita/' . $file
                 ]);
             }
         }
@@ -140,6 +141,12 @@ class BeritaController extends Controller
      */
     public function destroy(string $id)
     {
+        $a = Berita::with('foto')->find($id);
+        if ($a) {
+            foreach ($a->foto as $item) {
+                Storage::disk('gcs')->delete('berita/' . $item->nama_file);
+            }
+        }
         Berita::destroy($id);
     }
 

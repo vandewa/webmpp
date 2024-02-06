@@ -58,15 +58,15 @@
                 $('form').find('input[name="document[]"][value="' + name + '"]').remove();
 
                 // alert(name);
-                console.log(path);
-                console.log(name);
+                // console.log(path);
+                // console.log(name);
                 $.ajax({
-                    url: `/berita-delete/${name}`,
-                    type: "DELETE",
-                    cache: false,
-                    data: {
-                        "_token": token
-                    },
+                    url: `/hapus/${name}`,
+                    type: "GET",
+                    // cache: false,
+                    // data: {
+                    //     "_token": token
+                    // },
                     success: function(response) {
                         console.log(response);
                         //show success message
