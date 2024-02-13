@@ -2,65 +2,33 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Aplikasi;
-use App\Models\Penyelenggara;
 use Carbon\Carbon;
+use App\Models\Faq;
 use App\Models\Menu;
 use App\Models\Berita;
 use App\Models\Pendiri;
 use App\Models\Visitor;
+use App\Models\Aplikasi;
+use App\Jobs\TambahVisitor;
 use App\Models\LinkTerkait;
 use App\Models\Simpeg\Tb01;
 use Illuminate\Http\Request;
 use App\Models\InformasiUmum;
+use App\Models\Penyelenggara;
 use App\Models\InformasiPublik;
 use Illuminate\Support\Facades\DB;
 use App\Models\TransparansiAnggaran;
 use Illuminate\Support\Facades\Http;
 use App\Models\DaftarInformasiPublik;
-use App\Models\Faq;
 use Yajra\DataTables\Facades\DataTables;
 use hisorange\BrowserDetect\Parser as Browser;
 
 class HomeController extends Controller
 {
-
-    public function pengunjung()
-    {
-        $geoipInfo = geoip()->getLocation($_SERVER['REMOTE_ADDR']);
-        if (Browser::isDesktop() == 1) {
-            $jenis = 'Desktop';
-        }
-        if (Browser::isTablet() == 1) {
-            $jenis = 'Tablet';
-        }
-        if (Browser::isMobile() == 1) {
-            $jenis = 'Mobile';
-        }
-        $data = [
-            'ip' => $geoipInfo->ip,
-            'iso_code' => $geoipInfo->iso_code,
-            'country' => $geoipInfo->country,
-            'city' => $geoipInfo->city,
-            'state' => $geoipInfo->state,
-            'state_name' => $geoipInfo->state_name,
-            'postal_code' => $geoipInfo->postal_code,
-            'lat' => $geoipInfo->lat,
-            'lon' => $geoipInfo->lon,
-            'timezone' => $geoipInfo->timezone,
-            'continent' => $geoipInfo->continent,
-            'currency' => $geoipInfo->currency,
-            'browser_family' => Browser::browserFamily(),
-            'browser_name' => Browser::browserName(),
-            'platform_family' => Browser::platformFamily(),
-            'platform_name' => Browser::platformName(),
-            'jenis' => $jenis,
-        ];
-        Visitor::create($data);
-    }
     public function index()
     {
-        $this->pengunjung();
+        TambahVisitor::dispatch($_SERVER['REMOTE_ADDR']);
+
         $berita = Berita::with(['sampul', 'dibuat'])
             ->where('publish_st', 1)
             ->where('kategori_tp', 'KATEGORI_TP_01')

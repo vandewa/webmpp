@@ -15,18 +15,18 @@
     <link rel="shortcut icon" href="{{ asset('favicon.ico') }}" type="image/x-icon">
 
     <!-- ========== Start Stylesheet ========== -->
-    <link href="{{ asset('gostart/assets/css/bootstrap.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/font-awesome.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/themify-icons.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/flaticon-set.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/magnific-popup.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/owl.carousel.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/owl.theme.default.min.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/animate.css') }}" rel="stylesheet" />
-    <link href="{{ asset('gostart/assets/css/bootsnav.css') }}" rel="stylesheet" />
+    <link href="{{ asset('gostart/assets/css/bootstrap.min.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/font-awesome.min.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/themify-icons.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/flaticon-set.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/magnific-popup.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/owl.carousel.min.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/owl.theme.default.min.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/animate.css') }}" rel="stylesheet" async />
+    <link href="{{ asset('gostart/assets/css/bootsnav.css') }}" rel="stylesheet" async />
     <link href="{{ asset('gostart/style.css') }}" rel="stylesheet">
-    <link href="{{ asset('gostart/assets/css/responsive.css') }}" rel="stylesheet" />
-    <link rel="stylesheet" href="{{ asset('css/zilom.css') }}">
+    <link href="{{ asset('gostart/assets/css/responsive.css') }}" rel="stylesheet" async />
+    <link rel="stylesheet" href="{{ asset('css/zilom.css') }}" async>
 
     <!-- ========== End Stylesheet ========== -->
 
@@ -38,8 +38,8 @@
     <![endif]-->
 
     <!-- ========== Google Fonts ========== -->
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap" rel="stylesheet" async>
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700,800" rel="stylesheet" async>
 
     @vite([])
 
