@@ -294,7 +294,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
@@ -449,6 +449,28 @@
     </div>
     <!-- End Fun Fact Area -->
 
+    <!-- Modal -->
+    @if($info_umum->popup_st == true)
+    <div class="modal fade" id="jbt">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body text-center"> <!-- Added text-center class to center the content -->
+                    <!-- Centered Image inside the modal body -->
+                    <img src="{{ route('helper.show-picture', ['path' => $info_umum->popup]) }}"
+                        class="img-responsive center-block" style="max-height: 500px;">
+                </div>
+
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <!-- Close button -->
+                    <button class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endif
+
 @endsection
 
 @push('css')
@@ -457,4 +479,12 @@
             font-size: 14px;
         }
     </style>
+@endpush
+
+@push('js')
+    <script>
+        $(document).ready(function() {
+            $("#jbt").modal("show");
+        });
+    </script>
 @endpush

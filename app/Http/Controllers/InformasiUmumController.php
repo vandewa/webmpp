@@ -88,6 +88,30 @@ class InformasiUmumController extends Controller
 
         return redirect()->route('sampul')->with('edit', 'ok');
     }
+    public function popup()
+    {
+        $data = InformasiUmum::where('id', 1)->first();
+
+        return view('popup', compact('data'));
+    }
+
+    public function storePopup(Request $request)
+    {
+        if ($request->file('popup')) {
+            $popup = $request->file('popup')->storeAs(
+                'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM'),
+                date('Ymdhis') . '.' . $request->file('popup')->extension(),
+                'gcs'
+            );
+            InformasiUmum::where('id', 1)->first()->update([
+                'popup' => $popup
+            ]);
+        }
+
+
+
+        return redirect()->route('popup')->with('edit', 'ok');
+    }
 
     public function bupati()
     {
