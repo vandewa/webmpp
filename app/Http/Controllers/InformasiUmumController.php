@@ -97,6 +97,7 @@ class InformasiUmumController extends Controller
 
     public function storePopup(Request $request)
     {
+
         if ($request->file('popup')) {
             $popup = $request->file('popup')->storeAs(
                 'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM'),
@@ -105,9 +106,12 @@ class InformasiUmumController extends Controller
             );
             InformasiUmum::where('id', 1)->first()->update([
                 'popup' => $popup,
-                'popup_st' => $request->popup_st,
             ]);
         }
+
+        InformasiUmum::where('id', 1)->first()->update([
+            'popup_st' => $request->popup_st,
+        ]);
 
 
 
