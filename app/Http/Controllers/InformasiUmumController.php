@@ -104,7 +104,8 @@ class InformasiUmumController extends Controller
                 'gcs'
             );
             InformasiUmum::where('id', 1)->first()->update([
-                'popup' => $popup
+                'popup' => $popup,
+                'popup_st' => $request->popup_st,
             ]);
         }
 
