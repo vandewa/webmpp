@@ -39,7 +39,7 @@
                                                     </span>
                                                 </div>
                                                 <select class="custom-select" id="listingBedroom"
-                                                    aria-describedby="listingBedroomLabel">
+                                                    aria-describedby="listingBedroomLabel" name="popup_st">
                                                     <option value="1">Aktif</option>
                                                     <option value="0">Non Aktif</option>
                                                 </select>
