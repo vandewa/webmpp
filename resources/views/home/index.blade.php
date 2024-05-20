@@ -103,7 +103,8 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div style="margin-top:10px;">
-                            <img src="{{ asset('maklumat.png') }}" alt="" style="width: 100%;">
+                            <img src="{{ route('helper.show-picture', ['path' => $info_umum->maklumat_path]) }}"
+                                alt="" style="width: 100%;">
                         </div>
                     </div>
                     <div class="col-md-6 right-info">
@@ -294,7 +295,7 @@
     <!-- End Our Features -->
 
     <!-- Start Contact Area
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            ============================================= -->
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ============================================= -->
     <div id="faq" class="contact-area default-padding">
         <div class="container">
             <div class="row">
@@ -450,25 +451,25 @@
     <!-- End Fun Fact Area -->
 
     <!-- Modal -->
-    @if($info_umum->popup_st == true)
-    <div class="modal fade" id="jbt">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <!-- Modal body -->
-                <div class="modal-body text-center"> <!-- Added text-center class to center the content -->
-                    <!-- Centered Image inside the modal body -->
-                    <img src="{{ route('helper.show-picture', ['path' => $info_umum->popup]) }}"
-                        class="img-responsive center-block" style="max-height: 500px;">
-                </div>
+    @if ($info_umum->popup_st == true)
+        <div class="modal fade" id="jbt">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- Modal body -->
+                    <div class="modal-body text-center"> <!-- Added text-center class to center the content -->
+                        <!-- Centered Image inside the modal body -->
+                        <img src="{{ route('helper.show-picture', ['path' => $info_umum->popup]) }}"
+                            class="img-responsive center-block" style="max-height: 500px;">
+                    </div>
 
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <!-- Close button -->
-                    <button class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <!-- Close button -->
+                        <button class="btn btn-danger" data-dismiss="modal">Tutup</button>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     @endif
 
 @endsection

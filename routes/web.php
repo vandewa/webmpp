@@ -59,6 +59,8 @@ Route::middleware([
     Route::post('popup', [InformasiUmumController::class, 'storePopup'])->name('popup.post');
     Route::get('bupati', [InformasiUmumController::class, 'bupati'])->name('bupati');
     Route::post('bupati', [InformasiUmumController::class, 'storeBupati'])->name('bupati.post');
+    Route::get('maklumat', [InformasiUmumController::class, 'maklumat'])->name('maklumat');
+    Route::post('maklumat', [InformasiUmumController::class, 'storeMaklumat'])->name('maklumat.post');
     Route::get('visi', [InformasiUmumController::class, 'visi'])->name('visi');
     Route::post('visi', [InformasiUmumController::class, 'storeVisi'])->name('visi.post');
     Route::get('arti', [InformasiUmumController::class, 'arti'])->name('arti');

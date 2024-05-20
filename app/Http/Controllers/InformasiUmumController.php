@@ -125,6 +125,30 @@ class InformasiUmumController extends Controller
         return view('bupati', compact('data'));
     }
 
+    public function maklumat()
+    {
+        $data = InformasiUmum::where('id', 1)->first();
+
+        return view('maklumat', compact('data'));
+    }
+
+    public function storeMaklumat(Request $request)
+    {
+        if ($request->file('maklumat_path')) {
+            $path_gambar = $request->file('maklumat_path')->storeAs(
+                'public/' . Carbon::now()->isoFormat('Y') . '/' . Carbon::now()->isoFormat('MMMM'),
+                date('Ymdhis') . '.' . $request->file('maklumat_path')->extension(),
+                'gcs'
+            );
+        }
+
+        InformasiUmum::where('id', 1)->first()->update([
+            'maklumat_path' => $path_gambar
+        ]);
+
+        return redirect()->route('maklumat')->with('edit', 'ok');
+    }
+
     public function storeBupati(Request $request)
     {
         if ($request->file('bupati_path')) {

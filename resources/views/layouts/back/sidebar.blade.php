@@ -79,6 +79,7 @@
                         {{ Request::segment(1) == 'arti' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'operasional' ? ' menu-open' : '' }}
                         {{ Request::segment(1) == 'popup' ? ' menu-open' : '' }}
+                        {{ Request::segment(1) == 'maklumat' ? ' menu-open' : '' }}
                         ">
                       <a href="#"
                           class="nav-link
@@ -90,6 +91,7 @@
                             {{ Request::segment(1) == 'arti' ? ' active' : '' }}
                             {{ Request::segment(1) == 'operasional' ? ' active' : '' }}
                             {{ Request::segment(1) == 'popup' ? ' active' : '' }}
+                            {{ Request::segment(1) == 'maklumat' ? ' active' : '' }}
                       ">
                           <i class="nav-icon fas fa-info-circle"></i>
                           <p>
@@ -129,6 +131,17 @@
                                       <i class="far fa-circle nav-icon ml-3"></i>
                                   @endif
                                   <p>Visi | Misi | Motto</p>
+                              </a>
+                          </li>
+                          <li class="nav-item">
+                              <a href="{{ route('maklumat') }}"
+                                  class="nav-link {{ Request::segment(1) == 'maklumat' ? 'active' : '' }}">
+                                  @if (Request::segment(1) == 'maklumat')
+                                      <i class="far fa-dot-circle nav-icon ml-3"></i>
+                                  @else
+                                      <i class="far fa-circle nav-icon ml-3"></i>
+                                  @endif
+                                  <p>Maklumat Pelayanan</p>
                               </a>
                           </li>
                           <li class="nav-item">
